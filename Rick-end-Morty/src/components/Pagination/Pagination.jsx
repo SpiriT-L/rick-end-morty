@@ -17,6 +17,9 @@ const Pagination = ({ pageNumber, setPageNumber }) => {
         <button onClick={prev} className={`${styles.btnPrimary} ${styles.btn}`}>
           Prev
         </button>
+        <div className={styles.number}>
+          {pageNumber}
+          </div>
         <button onClick={next} className={`${styles.btnPrimary} ${styles.btn}`}>
           Next
         </button>
