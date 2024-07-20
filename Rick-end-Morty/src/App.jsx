@@ -3,15 +3,16 @@ import './App.scss';
 import Cards from './components/Cards/Cards';
 import Filters from './components/Filters/Filters';
 import Pagination from './components/Pagination/Pagination';
+import Search from './components/Search/Search';
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
-  console.log(pageNumber);
+  const [search, setSearch] = useState('');
   const [fetchData, updateFetchedData] = useState([]);
   const { info, results } = fetchData;
 
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
-
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+console.log(api);
   useEffect(() => {
     (async function () {
       const data = await fetch(api).then(res => res.json());
@@ -31,6 +32,7 @@ function App() {
       <section className='section'>
         <div className='container'>
           <div className='filter'>
+            <Search setPageNumber={setPageNumber} setSearch={setSearch} />
             <Filters />
           </div>
         </div>
