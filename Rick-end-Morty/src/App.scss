@@ -14,19 +14,17 @@
   padding: 10px;
 }
 .container {
-  width: 90rem;
+  max-width: 90rem;
   padding: 0 10px;
-  background: #ccc;
   margin: 0 auto;
 }
 .section {
   padding: 50px 0;
 }
 .cards {
-  background: #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 0.3125rem;
+  gap: .625rem;
 }

@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import './App.scss';
-import Cards from './components/Cards/Cards';
-import Filters from './components/Filters/Filters';
+import { useEffect, useState } from 'react'
+import './App.scss'
+import Cards from './components/Cards/Cards'
+import Filters from './components/Filters/Filters'
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
   const [fetchData, updateFetchedData] = useState([]);
   const {info, results} =fetchData
-  console.log(results);
+  
   const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
 
   useEffect(() => {
@@ -26,18 +26,21 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='container'>
         <section className='section'>
+      <div className='container'>
           <div className='filter'>
             <Filters />
           </div>
-        </section>
-        <section className='section'>
-          <div className='cards'>
-            <Cards />
           </div>
         </section>
-      </div>
+        <section className='section'>
+        <div className='container'>
+          <div className='cards'>
+            <Cards results={results}/>
+          </div>
+          </div>
+        </section>
+
     </>
   );
 }
