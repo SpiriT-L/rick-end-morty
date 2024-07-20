@@ -10,9 +10,12 @@ function App() {
   const [search, setSearch] = useState('');
   const [fetchData, updateFetchedData] = useState([]);
   const { info, results } = fetchData;
+  const [status, setStatus] = useState('');
+  const [gender, setGender] = useState('');
+  const [species, setSpecies] = useState('');
 
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
-console.log(api);
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
+  console.log(api);
   useEffect(() => {
     (async function () {
       const data = await fetch(api).then(res => res.json());
@@ -33,7 +36,12 @@ console.log(api);
         <div className='container'>
           <div className='filter'>
             <Search setPageNumber={setPageNumber} setSearch={setSearch} />
-            <Filters />
+            <Filters
+              setSpecies={setSpecies}
+              setGender={setGender}
+              setStatus={setStatus}
+              setPageNumber={setPageNumber}
+            />
           </div>
         </div>
       </section>
@@ -43,7 +51,11 @@ console.log(api);
             <Cards results={results} />
           </div>
           <div className='pagination'>
-            <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
+            <Pagination
+              info={info}
+              pageNumber={pageNumber}
+              setPageNumber={setPageNumber}
+            />
           </div>
         </div>
       </section>
