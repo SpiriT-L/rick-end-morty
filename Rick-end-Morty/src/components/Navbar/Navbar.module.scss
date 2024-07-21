@@ -1,0 +1,38 @@
+.navbar{
+  position: relative;
+  top: 0;
+  width: 100vw;
+  justify-content: space-between;
+  background-color: #ebebeb;
+}
+.navbarItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menuItems {
+  display: flex;
+  flex-direction: row;
+  &:not(last-child) {
+    margin-right: 20px;
+  }
+}
+.menuItem {
+  list-style: none;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  // text-align: center;
+  line-height: 1.5;
+  padding: 10px;
+  color: black;
+  margin: 0;
+}

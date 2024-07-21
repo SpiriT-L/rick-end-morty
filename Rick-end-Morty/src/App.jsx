@@ -6,7 +6,26 @@ import Navbar from './components/Navbar/Navbar';
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Location from './components/Pages/Location'
+import Episodes from './components/Pages/Episodes'
+
 function App() {
+  return (
+    <Router>
+      <div className='App'>
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/location' element={<Location />} />
+        <Route path='/episodes' element={<Episodes />} />
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState('');
   const [fetchData, updateFetchedData] = useState([]);
@@ -26,8 +45,6 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      
       <section className='section'>
         <div className='container'>
           <div className='filter'>
@@ -57,6 +74,6 @@ function App() {
       </section>
     </>
   );
-}
+};
 
 export default App;
