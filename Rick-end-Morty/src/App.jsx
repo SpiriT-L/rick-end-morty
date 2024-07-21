@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import Cards from './components/Cards/Cards';
 import Filters from './components/Filters/Filters';
+import Navbar from './components/Navbar/Navbar';
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 
@@ -15,7 +16,7 @@ function App() {
   const [species, setSpecies] = useState('');
 
   const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
-  console.log(api);
+
   useEffect(() => {
     (async function () {
       const data = await fetch(api).then(res => res.json());
@@ -25,13 +26,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <div className='container'>
-          <div className='title'>
-            <h1 className='h1'>Rick & Morty</h1>
-          </div>
-        </div>
-      </div>
+      <Navbar />
+      
       <section className='section'>
         <div className='container'>
           <div className='filter'>
