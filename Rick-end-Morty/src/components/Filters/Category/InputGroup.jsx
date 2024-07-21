@@ -9,7 +9,7 @@ const InputGroup = ({ total, name, setId }) => {
           className={styles.formSelect}
           id={name}
         >
-          <option selected>Choose Episode...</option>
+          <option value='1' selected>Choose {name}...</option>
 
           {[...Array(total).keys()].map(x => {
             return (
