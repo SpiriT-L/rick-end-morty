@@ -7,8 +7,9 @@ import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Location from './components/Pages/Location'
-import Episodes from './components/Pages/Episodes'
+import CardDetails from './components/Cards/CardDetails';
+import Episodes from './components/Pages/Episodes';
+import Location from './components/Pages/Location';
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<CardDetails />} />
         <Route path='/location' element={<Location />} />
+        <Route path='/location/:id' element={<CardDetails />} />
         <Route path='/episodes' element={<Episodes />} />
+        <Route path='/episodes/:id' element={<CardDetails />} />
       </Routes>
     </Router>
   );
@@ -47,6 +51,7 @@ const Home = () => {
     <>
       <section className='section'>
         <div className='container'>
+          <h2 className='title'>Characters</h2>
           <div className='filter'>
             <Search setPageNumber={setPageNumber} setSearch={setSearch} />
             <Filters
@@ -61,7 +66,7 @@ const Home = () => {
       <section className='section'>
         <div className='container'>
           <div className='cards'>
-            <Cards results={results} />
+            <Cards page='/' results={results} />
           </div>
           <div className='pagination'>
             <Pagination

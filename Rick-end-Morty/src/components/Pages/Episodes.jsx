@@ -45,7 +45,7 @@ const Episodes = () => {
         </div>
         <div className={styles.rowItem}>
           <div className='cards'>
-            <Cards results={results} />
+            <Cards page='/episodes/' results={results} />
           </div>
         </div>
       </div>

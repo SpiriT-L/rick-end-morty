@@ -1,12 +1,13 @@
 import styles from './Cards.module.scss';
+import { Link } from "react-router-dom";
 
-const Cards = ({ results }) => {
+const Cards = ({ results, page }) => {
   let display;
   if (results) {
     display = results.map(x => {
       let { id, name, image, gender, location, status } = x;
       return (
-        <div key={id} className={styles.cardsItem}>
+        <Link to={`${page}${id}`} key={id} className={styles.cardsItem}>
           <img className={styles.img} src={image} alt={name} />
           <div className={styles.description}>
             <h2>{name}</h2>
@@ -37,7 +38,7 @@ const Cards = ({ results }) => {
               </span>);
             }
           })()}
-        </div>
+        </Link>
       );
     });
   } else {
